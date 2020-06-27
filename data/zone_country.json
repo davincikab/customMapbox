@@ -1,0 +1,76 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneCountry/spain/Cantabria.jpeg",
+                "title": "Norte de España"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -5.625,
+                    42.956422511073335
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneCountry/spain/mediterraneoEspana.jpg",
+                "title": "Mediterraneo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.1318359375,
+                    40.027614437486655
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneCountry/spain/centroEspana.jpg",
+
+                "title": "España Centro"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.8452148437499996,
+                    40.26276066437183
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneCountry/spain/surEspana.jpg",
+
+                "title": "Sur de España"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.19677734375,
+                    36.89719446989036
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneCountry/spain/pirineo.jpg",
+                "title": "Pirineo Español"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.0107421875,
+                    42.53689200787315
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar {
+    width: 20%;
+    background: white;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 20%;
+}
+
+#sidebar.visible {
+    left: 0px;
+    transition: left 0.7s ease;
+}
+
+#map {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#map.shorten {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    bottom: 0;
+    width: 80%;
+    transition: left 0.7s ease;
+}
+
+.marker {
+    display: block;
+    border: 4px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    opacity: 1;
+    /*-webkit-animation: fadeInFromNone 0.5s ;
+    -moz-animation: fadeInFromNone 0.5s;
+    -o-animation: fadeInFromNone 0.5s;
+    animation: fadeInFromNone 0.5s;*/
+    transition: opacity 2s;
+
+
+}
+
+.marker-city {
+    display: block;
+    border: 4px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+
+.marker-fade-in {
+    opacity: 0;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    50% {
+        display: block;
+        opacity: 0.5;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    50% {
+        display: block;
+        opacity: 0.5;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    50% {
+        display: block;
+        opacity: 0.5;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    50% {
+        display: block;
+        opacity: 0.5;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+/* My styles */
+.form-control {
+    top:2%;
+    right:3%;
+    width:80vw;
+    padding:0.1em;
+    border-radius: 1em;
+    z-index:800;
+}
+
+.result {
+    top:8%;
+    right:3%;
+    width:80vw;
+    padding:0.1em;
+    border-radius: 1em;
+    z-index:800;
+}
+
+.mapboxgl-ctrl-geocoder {
+    position: absolute !important;
+}
+
+.result li {
+    list-style: none;
+}
+
+.result li:hover {
+    background-color: #dddddd;
+}
+
+@media(max_width:50em) {
+    .result, .form-control {
+        width: 20vw;
+    }
+}

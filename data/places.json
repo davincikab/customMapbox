@@ -1,0 +1,108 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/places/bed.png"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.725719451904297,
+                    42.23194923641754
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/places/restaurant.png"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.699798583984375,
+                    42.256348336598
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/places/view.png"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.752498626708984,
+                    42.226356447017686
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/places/coffe.png"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.724861145019531,
+                    42.23766862211923
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/places/restaurant.png"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.722200393676758,
+                    42.239574968838696
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/places/restaurant.png"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.77532958984375,
+                    42.21122801157102
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/places/restaurant.png"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.729581832885742,
+                    42.21453369345477
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/places/view.png"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.726749420166016,
+                    42.240432806073386
+                ]
+            }
+        }
+    ]
+}

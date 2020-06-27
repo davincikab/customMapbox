@@ -1,0 +1,131 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/cities/europe/spain/galicia/vigo.jpg",
+                "title": "Vigo"
+
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.730010986328125,
+                    42.238685347536496
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/cities/europe/spain/galicia/pontevedra.jpg",
+                "title": "Pontevedra"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.644866943359375,
+                    42.42649764886491
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/cities/europe/spain/galicia/grove.jpg",
+                "title": "O Grove"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.876953125,
+                    42.45791402988027
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/cities/europe/spain/galicia/islaArousa.jpg",
+                "title": "Illa de Arousa"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.85498046875,
+                    42.549033612225145
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/cities/europe/spain/galicia/cangas.jpg",
+                "title": "Cangas"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.710784912109375,
+                    42.28340504748081
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/cities/europe/spain/galicia/islasCies.jpg",
+                "title": "Islas Cies"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.886566162109375,
+                    42.20919365980178
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/cities/europe/spain/galicia/baiona.jpg",
+                "title": "Baiona"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.852233886718748,
+                    42.12267315117256
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/cities/europe/spain/galicia/redondela.jpg",
+                "title": "Redondela"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.611907958984375,
+                    42.30778424213693
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/cities/europe/spain/galicia/aGuarda.jpg",
+                "title": "A Guarda"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.875579833984375,
+                    41.89001042401825
+                ]
+            }
+        }
+    ]
+}

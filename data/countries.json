@@ -1,0 +1,183 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/espana.png",
+                "title": "España"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.21875,
+                    40.245991504199026
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/francia.png",
+                "title": "Francia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.4609375,
+                    46.92025531537451
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/portugal.png",
+                "title": "Portugal"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.1298828125,
+                    40.17887331434696
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/italia.jpg",
+                "title": "Italia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.865234375,
+                    43.48481212891603
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/suiza.jpg",
+                "title": "Suiza"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.6572265625,
+                    46.70973594407157
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/inglaterra.png",
+                "title": "Inglaterra"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5380859375,
+                    51.781435604431195
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/irlanda.jpg",
+                "title": "Irlanda"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.173828125,
+                    52.40241887397332
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/irlandaNorte.png",
+                "title": "irlanda del Norte"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8994140625,
+                    54.69923352848137
+                ]
+            }
+        },
+
+
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/luxemburgo.jpg",
+                "title": "Luxemburgo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.987548828125,
+                    49.84506757956392
+                ]
+            }
+        },
+
+
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/belgica.png",
+                "title": "Belgica"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.262451171875,
+                    50.35247089493681
+                ]
+            }
+        },
+
+
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/europe/holanda.jpg",
+                "title": "Holanda"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.548095703125,
+                    51.63847621195153
+                ]
+            }
+        },
+
+
+
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/countries/africa/marruecos.jpg",
+                "title": "Marruecos"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.69140625,
+                    32.39851580247402
+                ]
+            }
+        }
+
+
+    ]
+}

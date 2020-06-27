@@ -1,0 +1,64 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/region/spain/galicia.jpeg",
+
+                "title": "Galicia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -7.635498046875,
+                    42.67435857693381
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/region/spain/asturias.jpg",
+
+                "title": "Asturias"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.17431640625,
+                    43.32517767999296
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/region/spain/cantabria.jpg",
+
+                "title": "Cantabria"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.5263671875,
+                    43.30119623257966
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/region/spain/castillaLeon.jpg",
+
+                "title": "Castilla y León"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -5.09765625,
+                    42.13082130188811
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "properties": {
+                "_id": "1zc",
+                "icon": "../img/zoneContinent/europe/mediterraneo.jpg",
+                "title": "Mediterraneo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.876953125,
+                    43.004647127794435
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneContinent/europe/norteEuropa.jpg",
+                "_id": "2zc",
+                "title": "Norte de Europa"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.886718749999998,
+                    59.977005492196
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneContinent/europe/centroEuropa.jpg",
+                "_id": "3zc",
+                "title": "Europa Central"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.240234374999999,
+                    49.83798245308484
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneContinent/europe/granBretaña.jpg",
+                "_id": "4zc",
+                "title": "Gran Bretaña"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.515625,
+                    52.855864177853974
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneContinent/europe/esteEuropa.jpg",
+                "_id": "5zc",
+                "title": "Europa del Este"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    25.048828125,
+                    48.04870994288686
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneContinent/europe/surEuropa.jpg",
+                "_id": "6zc",
+                "title": "Sur de Europa"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -2.373046875,
+                    39.57182223734374
+                ]
+            }
+        }
+    ]
+}

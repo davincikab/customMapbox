@@ -1,0 +1,75 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneRegion/europe/spain/galicia/riasBaixas.jpg",
+                "title": "Rías Baixas"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.8165283203125,
+                    42.40317854182803
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneRegion/europe/spain/galicia/costaMorte.jpg",
+                "title": "Costa da Morte"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.81103515625,
+                    43.27720532212024
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneRegion/europe/spain/galicia/lugo.jpg",
+                "title": "Centro de Galicia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -7.679443359375,
+                    42.67435857693381
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneRegion/europe/spain/galicia/santiago.jpg",
+                "title": "Santiago de Compostela"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.5089111328125,
+                    42.85583308674896
+                ]
+            }
+        },
+
+        {
+            "type": "Feature",
+            "properties": {
+                "icon": "../img/zoneRegion/europe/spain/galicia/ourense.jpg",
+                "title": "Ourense"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -7.8057861328125,
+                    42.24173542549948
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,124 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.39453125,
+                    47.517200697839414
+                ]
+            },
+            "properties": {
+                "title": "Europa",
+                "icon": "../img/continents/europa.jpg",
+                "images": [
+                    "tour-2-1.jpg",
+                    "tour-2-2.jpg",
+                    "tour-2-3.jpg"
+                ],
+                "_id": "1c"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.6328125,
+                    18.312810846425442
+                ]
+            },
+            "properties": {
+                "title": "Africa",
+                "icon": "../img/continents/africa.jpg",
+                "images": [
+                    "tour-2-1.jpg",
+                    "tour-2-2.jpg",
+                    "tour-2-3.jpg"
+                ],
+                "_id": "2c"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    84.72656249999999,
+                    44.33956524809713
+                ]
+            },
+            "properties": {
+                "title": "Asia",
+                "icon": "../img/continents/asia.jpg",
+                "images": [
+                    "tour-2-1.jpg",
+                    "tour-2-2.jpg",
+                    "tour-2-3.jpg"
+                ],
+                "_id": "3c"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -106.875,
+                    43.068887774169625
+                ]
+            },
+            "properties": {
+                "title": "Norte-America",
+                "icon": "../img/continents/NorteAmerica.jpg",
+                "images": [
+                    "tour-2-1.jpg",
+                    "tour-2-2.jpg",
+                    "tour-2-3.jpg"
+                ],
+                "_id": "4c"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -59.4140625,
+                    -8.754794702435605
+                ]
+            },
+            "properties": {
+                "title": "Sur-America",
+                "icon": "../img/continents/Sudamerica.jpg",
+                "images": [
+                    "tour-2-1.jpg",
+                    "tour-2-2.jpg",
+                    "tour-2-3.jpg"
+                ],
+                "_id": "5c"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.296875,
+                    -18.312810846425432
+                ]
+            },
+            "properties": {
+                "title": "Oceania",
+                "icon": "../img/continents/oceania.jpg",
+                "images": [
+                    "tour-2-1.jpg",
+                    "tour-2-2.jpg",
+                    "tour-2-3.jpg"
+                ],
+                "_id": "6c"
+            }
+        }
+    ]
+}
