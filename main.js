@@ -25,14 +25,14 @@ var visibleMarker = 'marker_continents';
 var previousMarker = 'marker_continets';
 
 var dataSources = [
-  {url:'/data/cities.json', marker_type:"marker_cities"},
-  {url:'/data/places.json', marker_type:"marker_places"},
-  {url:'/data/countries.json',marker_type:"marker_countries"},
-  {url:'/data/continents.json',marker_type:"marker_continents"},
-  {url:'/data/region_country.json',marker_type:"marker_region_country"},
-  {url:'/data/zone_continents.json' ,marker_type:"marker_zone_continents"},
-  {url:'/data/zone_country.json', marker_type:"marker_zone_country"},
-  {url:'/data/zone_region.json',marker_type:"marker_zone_region"}
+  {url:'data/cities.json', marker_type:"marker_cities"},
+  {url:'data/places.json', marker_type:"marker_places"},
+  {url:'data/countries.json',marker_type:"marker_countries"},
+  {url:'data/continents.json',marker_type:"marker_continents"},
+  {url:'data/region_country.json',marker_type:"marker_region_country"},
+  {url:'data/zone_continents.json' ,marker_type:"marker_zone_continents"},
+  {url:'data/zone_country.json', marker_type:"marker_zone_country"},
+  {url:'data/zone_region.json',marker_type:"marker_zone_region"}
 ];
 
 dataSources.forEach(dataSource => getData(dataSource));
@@ -69,6 +69,21 @@ function forwardGeocoder(query) {
     var docFrag = document.createDocumentFragment();
     filterData = searchData.filter(data => data.properties.title);
     console.log(filterData);
+    filterData = filterData.filter(data => {
+        if(
+            data.properties.title
+            .toLowerCase()
+            .search(query.toLowerCase()) !== -1
+        ) {
+            return data;
+        }
+    });
+
+    // reduce the dat items
+    if(filterData.length > 5) {
+        filterData = filterData.slice(0,5);
+    }
+
     filterData.forEach(data => {
         if(
             data.properties.title
@@ -97,10 +112,12 @@ function flyToMarker() {
     }
 
     let coordinate = $(this).attr('coord');
-    let coordinates = coordinate.split(',').map(coord => parseFloat(coord))
-    // console.log(coordinates);
+    let coordinates = coordinate.split(',').map(coord => parseFloat(coord));
 
-    // Creat  marker
+    // update the input with clicked label
+    $('#search-bar').val($(this).text());
+
+    // Create  marker
     searchMarker = new mapboxgl.Marker().setLngLat(
         coordinates
     );
@@ -112,6 +129,9 @@ function flyToMarker() {
     });
     
     searchMarker.addTo(map);
+
+    // close the geocoder result
+    $('#result').toggleClass('d-none');
 }
 
 function addToMap(feature, marker_type) {
@@ -134,8 +154,8 @@ function addToMap(feature, marker_type) {
         $("#sidebar").addClass("visible");
         $("#map").addClass("shorten");
 
-        $(".visible").empty();
-        $("<h1>" + title + "</h1>").appendTo(".visible");
+        $(".visible h1").remove();
+        $("<h1 class='title' >" + title + "</h1>").appendTo(".visible");
       });
 
       var mymarker = new mapboxgl.Marker(el).setLngLat(
@@ -200,4 +220,11 @@ map.on('zoomend', function(e) {
         default:
             break;
     }
+});
+
+
+// close 
+$('#close').on('click', function(e) {
+    $("#sidebar").toggleClass("visible");
+    $("#map").toggleClass("shorten");
 });
