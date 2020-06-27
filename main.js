@@ -137,7 +137,9 @@ function flyToMarker() {
 function addToMap(feature, marker_type) {
     var el = document.createElement("div");
       el.className = "marker " + marker_type;
-      el.style.backgroundImage = "url(" + feature.properties.icon + ")";
+
+      var imageUrl = feature.properties.icon.slice(3,);
+      el.style.backgroundImage = "url(" + imageUrl + ")";
       el.style.backgroundSize = "cover";
       el.style.backgroundPosition = "center";
 
