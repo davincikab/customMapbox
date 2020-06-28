@@ -135,13 +135,15 @@ body {
     top:2%;
     right:3%;
     width:80vw;
-    padding:0.1em;
+    padding:0.1em 0.3em;
     border-radius: 1em;
     z-index:800;
+    border: 2px;
+    border-color:#dddddd;
 }
 
 .result {
-    top:8%;
+    top:7%;
     right:3%;
     width:80vw;
     padding:0.1em;
