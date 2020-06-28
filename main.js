@@ -8,22 +8,22 @@ var map = new mapboxgl.Map({
     center: [150.180318, -34.605543],
     zoom: 0.2,
     minZoom: 1
-  });
-  
-  // add geocoder 
-var geocoder = new MapboxGeocoder({
-    accessToken:mapboxgl.accessToken,
-    mapboxgl:mapboxgl
 });
-  
-
-// map.addControl(geocoder);
 
 var searchData = [];
 var searchMarker;
+
+var searchBar = document.getElementById('search-bar');
+var result = document.getElementById('result');
+var sideBar = document.getElementById('sidebar');
+var mapContainer = document.getElementById('map');
+var closeButton = document.getElementById('close');
+
+// keep marker states
 var visibleMarker = 'marker_continents';
 var previousMarker = 'marker_continets';
 
+// various dataUrl
 var dataSources = [
   {url:'data/cities.json', marker_type:"marker_cities"},
   {url:'data/places.json', marker_type:"marker_places"},
@@ -35,8 +35,12 @@ var dataSources = [
   {url:'data/zone_region.json',marker_type:"marker_zone_region"}
 ];
 
-dataSources.forEach(dataSource => getData(dataSource));
+// wait for the map to load to add data
+map.on('load', function(e){
+    dataSources.forEach(dataSource => getData(dataSource));
+});
 
+// fetch the bookmarks
 function getData(dataSource) {
     fetch(dataSource.url)
         .then(response =>  response.json())
@@ -45,7 +49,7 @@ function getData(dataSource) {
             updateGeocoderObject(data);
         }).catch(error => {
             console.log(error);
-            alert(error.message);
+            // alert(error.message);
         });
 }
 
@@ -56,19 +60,30 @@ function createMarkers(object, markerType) {
   
 }
 
+// add features to searchData object
 function updateGeocoderObject(data){
     searchData.push(...data.features);
 }
 
-$('#search-bar').on('input', function(e) {
-    console.log($(this).val());
-    forwardGeocoder($(this).val());
+// Search bar event listener
+searchBar.addEventListener('input', function(e) {
+    console.log(this.value);
+    forwardGeocoder(this.value);
 });
 
+// addressSearch function
 function forwardGeocoder(query) {
+    // clear the results tab if it contains
+    if(query == ''){
+        result.innerHTML = '';
+        return;
+    }
+
+    // create a document fragment to hold the results
     var docFrag = document.createDocumentFragment();
     filterData = searchData.filter(data => data.properties.title);
-    console.log(filterData);
+
+    // filter the data containing the query parameter
     filterData = filterData.filter(data => {
         if(
             data.properties.title
@@ -79,11 +94,12 @@ function forwardGeocoder(query) {
         }
     });
 
-    // reduce the dat items
+    // limit the number of results found
     if(filterData.length > 5) {
         filterData = filterData.slice(0,5);
     }
 
+    // create a list of items
     filterData.forEach(data => {
         if(
             data.properties.title
@@ -101,27 +117,29 @@ function forwardGeocoder(query) {
         }
     });
 
-    // create a list of element
-    $('#result').empty();
-    $('#result').append(docFrag);
+    // append documentFragment to result element
+    result.innerHTML = '';
+    result.append(docFrag);
 }
 
+// fly o marker location
 function flyToMarker() {
     if(searchMarker) {
         searchMarker.remove();
     }
 
-    let coordinate = $(this).attr('coord');
+    let coordinate = this.getAttribute('coord');
     let coordinates = coordinate.split(',').map(coord => parseFloat(coord));
 
     // update the input with clicked label
-    $('#search-bar').val($(this).text());
+    searchBar.value = this.textContent;
 
-    // Create  marker
+    // Create  locator marker
     searchMarker = new mapboxgl.Marker().setLngLat(
         coordinates
     );
 
+    // fly to the give location
     map.flyTo({
         center:coordinates,
         essential:true,
@@ -131,9 +149,10 @@ function flyToMarker() {
     searchMarker.addTo(map);
 
     // close the geocoder result
-    $('#result').toggleClass('d-none');
+    result.innerHTML = '';
 }
 
+// add markers to map
 function addToMap(feature, marker_type) {
     var el = document.createElement("div");
       el.className = "marker " + marker_type;
@@ -150,16 +169,25 @@ function addToMap(feature, marker_type) {
         el.className = "marker marker-fade-in " + marker_type;
       }
 
+    // add interectivity to the markers
       el.addEventListener('click', function() {
         const title = feature.properties.title;
 
-        $("#sidebar").addClass("visible");
-        $("#map").addClass("shorten");
+        toggleSideBar("open");
+        let previousHeader = document.querySelector('#sidebar h1');
 
-        $(".visible h1").remove();
-        $("<h1 class='title' >" + title + "</h1>").appendTo(".visible");
+        if(previousHeader) {
+            previousHeader.remove();
+        }
+
+        let element = document.createElement('h1');
+        element.className = 'title';
+        element.textContent = title;
+
+        sideBar.appendChild(element);
       });
 
+    //   add marker to map
       var mymarker = new mapboxgl.Marker(el).setLngLat(
         feature.geometry.coordinates
       );
@@ -167,6 +195,7 @@ function addToMap(feature, marker_type) {
       mymarker.addTo(map);
 }
 
+// fade in layers
 function toggleLayer(className) {
     visibleMarker = className;
 
@@ -226,7 +255,19 @@ map.on('zoomend', function(e) {
 
 
 // close 
-$('#close').on('click', function(e) {
-    $("#sidebar").toggleClass("visible");
-    $("#map").toggleClass("shorten");
+closeButton.addEventListener('click', function(e) {
+    toggleSideBar("close");
 });
+
+// close or open sideBar
+function toggleSideBar(action) {
+    if(action == "open") {
+        sideBar.classList.add('visible');
+        mapContainer.classList.add('shorten');
+
+        return ;
+    }
+
+    sideBar.classList.toggle('visible');
+    mapContainer.classList.toggle('shorten');
+}
