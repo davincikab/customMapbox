@@ -45,7 +45,7 @@ body {
     -moz-animation: fadeInFromNone 0.5s;
     -o-animation: fadeInFromNone 0.5s;
     animation: fadeInFromNone 0.5s;*/
-    transition: opacity 2s;
+    transition: opacity 1s;
 
 
 }
@@ -167,11 +167,21 @@ body {
 
 .close {
     position: absolute;
-    top:8px;
-    font-size: 3em;
-    font-weight: bold;
+    top:2px;
+    font-size: 2.5em;
+    font-weight: 400;
     right:2px;
     cursor: pointer;
+}
+
+.title {
+    margin-top: 1em;
+    font-size: 1.5em;
+}
+
+.img-description {
+    height:30%;
+    width: 100%;
 }
 
 @media(max_width:50em) {

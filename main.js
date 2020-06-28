@@ -5,8 +5,8 @@ mapboxgl.accessToken =
 var map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/df13/ck1rlsmwq02zq1cnqquawed30",
-    center: [150.180318, -34.605543],
-    zoom: 0.2,
+    center: [7.945162026843832, 19.295832786307415],
+    zoom: 1,
     minZoom: 1
 });
 
@@ -18,6 +18,7 @@ var result = document.getElementById('result');
 var sideBar = document.getElementById('sidebar');
 var mapContainer = document.getElementById('map');
 var closeButton = document.getElementById('close');
+var infoContainer = document.getElementById('info-container');
 
 // keep marker states
 var visibleMarker = 'marker_continents';
@@ -35,7 +36,7 @@ var dataSources = [
   {url:'data/zone_region.json',marker_type:"marker_zone_region"}
 ];
 
-// wait for the map to load to add data
+// wait for the map to load to and add data
 map.on('load', function(e){
     dataSources.forEach(dataSource => getData(dataSource));
 });
@@ -109,6 +110,7 @@ function forwardGeocoder(query) {
             var list = document.createElement('li');
             list.className = 'address'
             list.setAttribute('coord', data.geometry.coordinates);
+
             list.textContent = data.properties.title;
             list.addEventListener('click',flyToMarker);
 
@@ -174,17 +176,18 @@ function addToMap(feature, marker_type) {
         const title = feature.properties.title;
 
         toggleSideBar("open");
-        let previousHeader = document.querySelector('#sidebar h1');
+        infoContainer.innerHTML = '';
 
-        if(previousHeader) {
-            previousHeader.remove();
-        }
+        let headerElement = document.createElement('h1');
+        headerElement.className = 'title';
+        headerElement.textContent = title;
 
-        let element = document.createElement('h1');
-        element.className = 'title';
-        element.textContent = title;
+        let imgElement = document.createElement('img');
+        imgElement.src = imageUrl;
+        imgElement.className = "img-description"
 
-        sideBar.appendChild(element);
+        infoContainer.appendChild(headerElement);
+        infoContainer.appendChild(imgElement);
       });
 
     //   add marker to map
