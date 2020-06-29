@@ -131,13 +131,7 @@ function forwardGeocoder(query) {
             list.setAttribute('data-type', data.properties.type);
             list.setAttribute('data-title', data.properties.title);
 
-            list.textContent = data.properties.title;
-            //  +'<br>'+ data.properties.type;;
-
-            var small = document.createElement('small');
-            small.textContent =  data.properties.type;
-
-            list.appendChild(small);
+            list.innerHTML = data.properties.title + ', '+ '<small>'+data.properties.type;+'</small>';
 
             list.addEventListener('click',flyToMarker);
 
@@ -152,7 +146,7 @@ function forwardGeocoder(query) {
 }
 
 // fly o marker location
-function flyToMarker() {
+function flyToMarker(e) {
     if(searchMarker) {
         searchMarker.remove();
     }
@@ -276,7 +270,7 @@ function toggleLayer(className) {
 }
 
 // Zoom function listener
-map.on('zoomend', function(e) {
+map.on('zoom', function(e) {
     var zoom = map.getZoom();
     console.log(zoom);
     switch (true) {
@@ -307,6 +301,15 @@ map.on('zoomend', function(e) {
             break;
         default:
             break;
+    }
+});
+
+map.on('zoomend', function(e) {
+    if(searchMarker) {
+        setTimeout(function(e){
+            searchMarker.remove()
+        }, 1500)
+        
     }
 });
 

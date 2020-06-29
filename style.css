@@ -62,7 +62,8 @@ body {
 }
 
 .marker-active {
-    border-color:red;
+    border-color:#ffc219d7;
+    background-color: #ffc3197d;
     animation-name: pulseAnimation;
     animation-timing-function: linear;
     animation-duration: 1.5s;
@@ -198,6 +199,7 @@ body {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .result li:hover {
@@ -227,6 +229,7 @@ body {
     width: 100%;
 }
 
+
 @media(min-width:50em) {
     #map.shorten {
         position: absolute;
@@ -244,6 +247,7 @@ body {
         top: 0;
         left: 0%;
         width: 0%;
+        overflow: hidden;
     }
     
     #sidebar.visible {
