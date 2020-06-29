@@ -4,17 +4,18 @@ body {
 }
 
 #sidebar {
-    width: 20%;
+    width: 100%;
     background: white;
     position: absolute;
-    height: 100%;
-    top: 0;
-    left: 20%;
+    height: 50%;
+    overflow: auto;
+    bottom: 0%;
+    z-index: 2;
 }
 
 #sidebar.visible {
-    left: 0px;
-    transition: left 0.7s ease;
+    /* left: 0px; */
+    transition: height 0.7s ease;
 }
 
 #map {
@@ -27,11 +28,10 @@ body {
 
 #map.shorten {
     position: absolute;
-    left: 20%;
+    /* left: 20%; */
     top: 0;
     bottom: 0;
-    width: 80%;
-    transition: left 0.7s ease;
+    width: 100%;
 }
 
 .marker {
@@ -45,9 +45,7 @@ body {
     -moz-animation: fadeInFromNone 0.5s;
     -o-animation: fadeInFromNone 0.5s;
     animation: fadeInFromNone 0.5s;*/
-    transition: opacity 1s;
-
-
+    transition: opacity 0.5s;
 }
 
 .marker-city {
@@ -60,6 +58,15 @@ body {
 
 .marker-fade-in {
     opacity: 0;
+}
+
+.marker-active {
+    border-color:red;
+    animation-name: pulseAnimation;
+    animation-timing-function: linear;
+    animation-duration: 1.5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes fadeInFromNone {
@@ -130,6 +137,36 @@ body {
     }
 }
 
+/* Marker animations */
+@keyframes pulseAnimation {
+    0% {
+       /* transform: scale(1); */
+       width: 40px;
+       height: 40px;
+    }
+    25% {
+        /* transform: scale(1.2); */
+        width:50px;
+        height:50px;
+    }
+    50% {
+        /* transform: scale(1.4); */
+        width: 60px;
+        height: 60px;
+    }
+
+    75% {
+        /* transform: scale(1.2); */
+        width: 50px;
+        height: 50px;
+    }
+    100%{
+        /* transform: scale(1); */
+        width: 40px;
+        width: 40px;
+    }
+}
+
 /* My styles */
 .form-control {
     top:2%;
@@ -153,10 +190,13 @@ body {
 
 .mapboxgl-ctrl-geocoder {
     position: absolute !important;
+    width: 80% !important;
 }
 
 .result li {
     list-style: none;
+    display: flex;
+    justify-content: space-between;
 }
 
 .result li:hover {
@@ -186,8 +226,27 @@ body {
     width: 100%;
 }
 
-@media(max_width:50em) {
-    .result, .form-control {
-        width: 20vw;
+@media(min-width:50em) {
+    #map.shorten {
+        position: absolute;
+        left: 20%;
+        top: 0;
+        bottom: 0;
+        width: 80%;
+        transition: left 0.7s ease;
+    }
+
+    #sidebar {
+        background: white;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0%;
+        width: 0%;
+    }
+    
+    #sidebar.visible {
+        width: 20%;
+        transition: width 1.0s ease;
     }
 }

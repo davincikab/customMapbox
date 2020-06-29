@@ -27,14 +27,14 @@ var previousMarker = 'marker_continets';
 
 // various dataUrl
 var dataSources = [
-  {url:'data/cities.json', marker_type:"marker_cities"},
-  {url:'data/places.json', marker_type:"marker_places"},
-  {url:'data/countries.json',marker_type:"marker_countries"},
-  {url:'data/continents.json',marker_type:"marker_continents"},
-  {url:'data/region_country.json',marker_type:"marker_region_country"},
-  {url:'data/zone_continents.json' ,marker_type:"marker_zone_continents"},
-  {url:'data/zone_country.json', marker_type:"marker_zone_country"},
-  {url:'data/zone_region.json',marker_type:"marker_zone_region"}
+  {url:'data/cities.json', marker_type:"marker_cities", type:'cities', zoom:10},
+  {url:'data/places.json', marker_type:"marker_places", type:'Places', zoom:13.5},
+  {url:'data/countries.json',marker_type:"marker_countries", type:'Countries', zoom:5.1},
+  {url:'data/continents.json',marker_type:"marker_continents", type:'Continent', zoom:1.5},
+  {url:'data/region_country.json',marker_type:"marker_region_country", type:'Region Country', zoom:7.5},
+  {url:'data/zone_continents.json' ,marker_type:"marker_zone_continents", type:'Zone Continents', zoom:3.5},
+  {url:'data/zone_country.json', marker_type:"marker_zone_country", type:'Zone Country', zoom:6.5},
+  {url:'data/zone_region.json',marker_type:"marker_zone_region", type:'Zone Region', zoom:8.5}
 ];
 
 // wait for the map to load to and add data
@@ -48,7 +48,7 @@ function getData(dataSource) {
         .then(response =>  response.json())
         .then(data => {
             createMarkers(data, dataSource.marker_type);
-            updateGeocoderObject(data);
+            updateGeocoderObject(data, dataSource.zoom, dataSource.type);
         }).catch(error => {
             console.log(error);
             // alert(error.message);
@@ -63,7 +63,16 @@ function createMarkers(object, markerType) {
 }
 
 // add features to searchData object
-function updateGeocoderObject(data){
+function updateGeocoderObject(data, zoom, type){
+    // add property zoom level to the features
+    data.features = data.features.map(feature => {
+        feature.properties.type = type;
+        feature.properties.zoom = zoom;
+
+        return feature;
+    });
+
+    console.log(data);
     searchData.push(...data.features);
 }
 
@@ -96,10 +105,17 @@ function forwardGeocoder(query) {
         }
     });
 
+    if(filterData.length == 0) {
+        result.innerHTML = '<small><b>No result found<b></small>';
+        return;
+    }
+
     // limit the number of results found
     if(filterData.length > 5) {
         filterData = filterData.slice(0,5);
     }
+
+    console.log(filterData);
 
     // create a list of items
     filterData.forEach(data => {
@@ -110,9 +126,19 @@ function forwardGeocoder(query) {
         ) {
             var list = document.createElement('li');
             list.className = 'address'
-            list.setAttribute('coord', data.geometry.coordinates);
+            list.setAttribute('data-coord', data.geometry.coordinates);
+            list.setAttribute('data-zoom', data.properties.zoom);
+            list.setAttribute('data-type', data.properties.type);
+            list.setAttribute('data-title', data.properties.title);
 
             list.textContent = data.properties.title;
+            //  +'<br>'+ data.properties.type;;
+
+            var small = document.createElement('small');
+            small.textContent =  data.properties.type;
+
+            list.appendChild(small);
+
             list.addEventListener('click',flyToMarker);
 
             docFrag.appendChild(list);
@@ -131,14 +157,35 @@ function flyToMarker() {
         searchMarker.remove();
     }
 
-    let coordinate = this.getAttribute('coord');
+    let coordinate = this.getAttribute('data-coord');
     let coordinates = coordinate.split(',').map(coord => parseFloat(coord));
+    let title = this.getAttribute('data-title');
+    let type = this.getAttribute('data-type');
+
+    const zoom = this.getAttribute('data-zoom');
 
     // update the input with clicked label
     searchBar.value = this.textContent;
 
+    var markerHighlight = document.createElement('div')
+    markerHighlight.className = ('marker marker-active');
+    markerHighlight.style.width = "40px";
+    markerHighlight.style.height = "40px";
+
+    // get the feature with the given name and type
+    const feature = searchData.find(ft => {
+        if(ft.properties.title == title && type == ft.properties.type){
+            return ft;
+        }
+    });
+
+    console.log(feature);
+    markerHighlight.addEventListener('click', function(e){
+        displayInfo(feature);
+    });
+
     // Create  locator marker
-    searchMarker = new mapboxgl.Marker().setLngLat(
+    searchMarker = new mapboxgl.Marker(markerHighlight).setLngLat(
         coordinates
     );
 
@@ -146,7 +193,7 @@ function flyToMarker() {
     map.flyTo({
         center:coordinates,
         essential:true,
-        zoom:12
+        zoom:parseFloat(zoom)
     });
     
     searchMarker.addTo(map);
@@ -174,21 +221,7 @@ function addToMap(feature, marker_type) {
 
     // add interectivity to the markers
       el.addEventListener('click', function() {
-        const title = feature.properties.title;
-
-        toggleSideBar("open");
-        infoContainer.innerHTML = '';
-
-        let headerElement = document.createElement('h1');
-        headerElement.className = 'title';
-        headerElement.textContent = title;
-
-        let imgElement = document.createElement('img');
-        imgElement.src = imageUrl;
-        imgElement.className = "img-description"
-
-        infoContainer.appendChild(headerElement);
-        infoContainer.appendChild(imgElement);
+        displayInfo(feature);
       });
 
     //   add marker to map
@@ -197,6 +230,26 @@ function addToMap(feature, marker_type) {
       );
     
       mymarker.addTo(map);
+}
+
+// function handle click event
+function displayInfo(feature) {
+    const title = feature.properties.title;
+    var imageUrl = feature.properties.icon.slice(3,);
+
+    toggleSideBar("open");
+    infoContainer.innerHTML = '';
+
+    let headerElement = document.createElement('h1');
+    headerElement.className = 'title';
+    headerElement.textContent = title;
+
+    let imgElement = document.createElement('img');
+    imgElement.src = imageUrl;
+    imgElement.className = "img-description"
+
+    infoContainer.appendChild(headerElement);
+    infoContainer.appendChild(imgElement);
 }
 
 // fade in layers

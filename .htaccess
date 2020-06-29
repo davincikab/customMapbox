@@ -1,0 +1,15 @@
+# Prevent Apache from serving .ht* files:
+<FilesMatch "^\.ht">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+# enable basic rewriting
+RewriteEngine on
+Options +FollowSymLinks 
+RewriteEngine on 
+RewriteCond %{HTTP_HOST} . 
+RewriteCond %{HTTP_HOST} !^beatsweeping\.com 
+RewriteRule (.*) http://beatsweeping.com/$1 [R=301,L]
+
+DirectoryIndex index.php
