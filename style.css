@@ -7,15 +7,16 @@ body {
     width: 100%;
     background: white;
     position: absolute;
-    height: 50%;
+    height: 0%;
     overflow: auto;
     bottom: 0%;
     z-index: 2;
+    transition: height 0.7s ease;
 }
 
 #sidebar.visible {
     /* left: 0px; */
-    transition: height 0.7s ease;
+    height: 40%;
 }
 
 #map {
